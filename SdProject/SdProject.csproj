@@ -292,6 +292,8 @@
     <Content Include="Views\Message\_DisplayMessage.cshtml" />
     <Content Include="Views\Message\Listing.cshtml" />
     <Content Include="Views\Message\_Create.cshtml" />
+    <Content Include="Views\Account\EnterInfo.cshtml" />
+    <Content Include="Views\Account\PageView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -39,7 +39,7 @@ namespace SdProject.Controllers
         {
             if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
             {
-                return RedirectToLocal(returnUrl);
+                return RedirectToAction("PageView", "Account");
             }
 
             // If we got this far, something failed, redisplay form
@@ -83,7 +83,7 @@ namespace SdProject.Controllers
                 {
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
                     WebSecurity.Login(model.UserName, model.Password);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("EnterInfo");
                 }
                 catch (MembershipCreateUserException e)
                 {
@@ -330,6 +330,22 @@ namespace SdProject.Controllers
             return PartialView("_RemoveExternalLoginsPartial", externalLogins);
         }
 
+        [AllowAnonymous]
+        public ActionResult EnterInfo()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult EnterInfo(EnterInfo model)
+        {
+            return RedirectToAction("PageView", "Account");
+        }
+
+        public ActionResult PageView()
+        {
+            return View();
+        }
         #region Helpers
         private ActionResult RedirectToLocal(string returnUrl)
         {

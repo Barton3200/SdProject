@@ -1,0 +1,65 @@
+﻿@model SdProject.Models.EnterInfo
+
+@{
+    ViewBag.Title = "EnterInfo";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>Tell us about your home.</h2>
+</hgroup>
+
+@using (Html.BeginForm()) {
+
+    <fieldset>
+        <legend>Enter Your Info</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.StreetAddress)
+                @Html.TextBoxFor(m => m.StreetAddress)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.City)
+                @Html.TextBoxFor(m => m.City)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.ZipCode)
+                @Html.TextBoxFor(m => m.ZipCode)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Style)
+                @Html.TextBoxFor(m => m.Style)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.SquareFeet)
+                @Html.TextBoxFor(m => m.SquareFeet)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Bedrooms)
+                @Html.TextBoxFor(m => m.Bedrooms)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Bathrooms)
+                @Html.TextBoxFor(m => m.Bathrooms)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Extras)
+                @Html.TextAreaFor(m => m.Extras, new { @cols = "35", @rows = "3" })
+            </li>
+            <li>
+                <h1>Image uploader coming soon!</h1>
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Email)
+                @Html.TextBoxFor(m => m.Email)
+            </li>
+           
+
+
+        </ol>
+        <input type="submit" value="slkdfjsd" />
+    </fieldset>
+}
+    @section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

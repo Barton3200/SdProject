@@ -5,7 +5,9 @@ using System.Transactions;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using DataAccess;
 using DotNetOpenAuth.AspNet;
+using Logic;
 using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using SdProject.Filters;
@@ -14,7 +16,6 @@ using SdProject.Models;
 namespace SdProject.Controllers
 {
     [Authorize]
-    [InitializeSimpleMembership]
     public class AccountController : Controller
     {
         //
@@ -37,7 +38,7 @@ namespace SdProject.Controllers
         {
             if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
             {
-                return RedirectToLocal(returnUrl);
+                return RedirectToAction("PageView", "Account");
             }
 
             // If we got this far, something failed, redisplay form
@@ -81,7 +82,7 @@ namespace SdProject.Controllers
                 {
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
                     WebSecurity.Login(model.UserName, model.Password);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("EnterInfo");
                 }
                 catch (MembershipCreateUserException e)
                 {
@@ -263,14 +264,14 @@ namespace SdProject.Controllers
             if (ModelState.IsValid)
             {
                 // Insert a new user into the database
-                using (UsersContext db = new UsersContext())
+                using (SdDb db = new SdDb())
                 {
-                    UserProfile user = db.UserProfiles.FirstOrDefault(u => u.UserName.ToLower() == model.UserName.ToLower());
+                    User user = db.Users.FirstOrDefault(u => u.UserName.ToLower() == model.UserName.ToLower());
                     // Check if user already exists
                     if (user == null)
                     {
                         // Insert name into the profile table
-                        db.UserProfiles.Add(new UserProfile { UserName = model.UserName });
+                        db.Users.Add(new User { UserName = model.UserName });
                         db.SaveChanges();
 
                         OAuthWebSecurity.CreateOrUpdateAccount(provider, providerUserId, model.UserName);
@@ -328,6 +329,22 @@ namespace SdProject.Controllers
             return PartialView("_RemoveExternalLoginsPartial", externalLogins);
         }
 
+        [AllowAnonymous]
+        public ActionResult EnterInfo()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult EnterInfo(EnterInfo model)
+        {
+            return RedirectToAction("PageView", "Account");
+        }
+
+        public ActionResult PageView()
+        {
+            return View();
+        }
         #region Helpers
         private ActionResult RedirectToLocal(string returnUrl)
         {

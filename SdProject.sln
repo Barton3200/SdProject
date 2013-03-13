@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SdProject", "SdProject\SdProject.csproj", "{93935A2E-A0B4-4677-8BA1-69385BEB458E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{5593C2D1-6A61-40E0-9DBC-BF0FAFBFED27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic", "Logic\Logic.csproj", "{585C170E-37ED-4764-AE8C-F2EF4EEDFCAE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +17,14 @@ Global
 		{93935A2E-A0B4-4677-8BA1-69385BEB458E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93935A2E-A0B4-4677-8BA1-69385BEB458E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93935A2E-A0B4-4677-8BA1-69385BEB458E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5593C2D1-6A61-40E0-9DBC-BF0FAFBFED27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5593C2D1-6A61-40E0-9DBC-BF0FAFBFED27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5593C2D1-6A61-40E0-9DBC-BF0FAFBFED27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5593C2D1-6A61-40E0-9DBC-BF0FAFBFED27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{585C170E-37ED-4764-AE8C-F2EF4EEDFCAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{585C170E-37ED-4764-AE8C-F2EF4EEDFCAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{585C170E-37ED-4764-AE8C-F2EF4EEDFCAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{585C170E-37ED-4764-AE8C-F2EF4EEDFCAE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

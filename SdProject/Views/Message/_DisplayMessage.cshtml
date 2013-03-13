@@ -1,0 +1,30 @@
+﻿@model SdProject.Models.MessageModels.MessageModel
+
+
+
+<div>
+    <div>
+        <div>
+            <div> Author: @Model.Author</div>         
+        </div> 
+        <div>
+            <div>
+                <div> @Model.Subject </div>
+                <div> Created: @Model.Created</div>
+            </div>
+            <div>
+                @Model.MessageBody
+            </div>
+            <div>
+                @if(@Model.LastModified != @Model.Created) {
+                    <div>LastModified: @Model.LastModified</div>
+                }
+                @if(@Model.LastModifiedBy != @Model.Author) {
+                    <div>Last Modified By: @Model.LastModifiedBy</div>
+                }
+            </div>
+        </div>   
+        
+    </div>
+    
+</div>

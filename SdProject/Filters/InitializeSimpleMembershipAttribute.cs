@@ -3,8 +3,10 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Threading;
 using System.Web.Mvc;
+using DataAccess;
 using WebMatrix.WebData;
 using SdProject.Models;
+using Logic;
 
 namespace SdProject.Filters
 {
@@ -25,11 +27,9 @@ namespace SdProject.Filters
         {
             public SimpleMembershipInitializer()
             {
-                Database.SetInitializer<UsersContext>(null);
-
                 try
                 {
-                    using (var context = new UsersContext())
+                    using (var context = new SdDb())
                     {
                         if (!context.Database.Exists())
                         {
@@ -38,7 +38,7 @@ namespace SdProject.Filters
                         }
                     }
 
-                    WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+                    WebSecurity.InitializeDatabaseConnection(AppConfig.GetActiveConnectionString(), "Users", "Id", "UserName", autoCreateTables: true);
                 }
                 catch (Exception ex)
                 {

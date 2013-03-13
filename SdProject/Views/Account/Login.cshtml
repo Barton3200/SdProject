@@ -9,7 +9,7 @@
 </hgroup>
 
 <section id="loginForm">
-<h2>Use a local account to log in.</h2>
+@*<h2>If you dont have an acount, f**k you!</h2>*@
 @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
@@ -41,8 +41,22 @@
 </section>
 
 <section class="social" id="socialLoginForm">
-    <h2>Use another service to log in.</h2>
-    @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
+    <ol class="round">
+    <li class="one">
+        <h5>Prolly put something excited to say here!</h5>  
+        Text
+    </li>
+
+    <li class="two">
+        <h5>And here!</h5>
+        Text
+    </li>
+
+    <li class="three">
+        <h5>And Here!</h5>
+        Text
+    </li>
+</ol>
 </section>
 
 @section Scripts {

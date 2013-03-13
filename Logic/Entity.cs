@@ -8,8 +8,9 @@ namespace Logic {
     public class Entity : IObjectState {
         public Entity() {}
 
-        public Entity(HttpRequestBase request) {
-            History = new List<EntityChange> { new EntityChange(request) };
+        public Entity(EntityChange entityChange) {
+            History = new List<EntityChange>();
+            AddEntityChange(entityChange);
             ObjectState = ObjectState.Added;
         }
 
@@ -20,5 +21,9 @@ namespace Logic {
 
         [NotMapped]
         public ObjectState ObjectState { get; set; }
+
+        public void AddEntityChange(EntityChange change) {
+            History.Add(change);
+        }
     }
 }

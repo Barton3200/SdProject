@@ -16,6 +16,7 @@ namespace Logic {
             ObjectState = ObjectState.Added;
         }
 
+        [Key]
         public int Id { get; set; }
 
         [Required]

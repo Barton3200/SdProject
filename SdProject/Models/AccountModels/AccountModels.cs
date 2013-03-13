@@ -6,7 +6,7 @@ using System.Data.Entity;
 using System.Globalization;
 using System.Web.Security;
 
-namespace SdProject.Models
+namespace SdProject.Models.AccountModels
 {
     public class RegisterExternalLoginModel
     {
@@ -17,7 +17,7 @@ namespace SdProject.Models
         public string ExternalLoginData { get; set; }
     }
 
-    public class LocalPasswordModel
+    public class ManageAccountInfoModel
     {
         [Required]
         [DataType(DataType.Password)]

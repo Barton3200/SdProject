@@ -8,8 +8,10 @@ namespace Logic {
         public OwnedEntity(){}
 
         public OwnedEntity(User user, OwnedEntityChange ownedEntityChange) {
-            OwnedHistory = new List<OwnedEntityChange>() { ownedEntityChange };
-            Owners = new List<User> { user };
+            OwnedHistory = new List<OwnedEntityChange>();
+            Owners = new List<User>();
+            AddEntityChange(ownedEntityChange);
+            AddOwner(user);
             ObjectState = ObjectState.Added;
         }
 
@@ -23,5 +25,13 @@ namespace Logic {
 
         [NotMapped]
         public ObjectState ObjectState { get; set; }
+
+        public void AddEntityChange(OwnedEntityChange change) {
+            OwnedHistory.Add(change);
+        }
+
+        public void AddOwner(User user) {
+            Owners.Add(user);
+        }
     }
 }

@@ -13,6 +13,12 @@ using WebMatrix.WebData;
 using SdProject.Filters;
 using SdProject.Models.AccountModels;
 using DataAccess.Repositories;
+using SdProject.Models;
+using System.Drawing;
+using System.Net;
+using System.IO;
+using System.Drawing.Drawing2D;
+using System.Linq.Expressions;
 
 namespace SdProject.Controllers
 {
@@ -334,22 +340,20 @@ namespace SdProject.Controllers
             return PartialView("_RemoveExternalLoginsPartial", externalLogins);
         }
 
-        [AllowAnonymous]
-        public ActionResult EnterInfo()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult EnterInfo(EnterInfo model)
-        {
-            return RedirectToAction("PageView", "Account");
-        }
+        
 
         public ActionResult PageView()
         {
             return View();
         }
+
+        public ActionResult UploadImage()
+        {
+            return View();
+        }
+
+        
+
         #region Helpers
         private ActionResult RedirectToLocal(string returnUrl)
         {

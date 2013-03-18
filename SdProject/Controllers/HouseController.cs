@@ -16,5 +16,16 @@ namespace SdProject.Controllers
             return View();
         }
 
+        [AllowAnonymous]
+        public ActionResult EnterInfo()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult EnterInfo(SdProject.Models.HouseDisplayModel.EnterInfo model)
+        {
+            return RedirectToAction("PageView", "Account");
+        }
     }
 }

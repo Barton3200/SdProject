@@ -1,4 +1,4 @@
-﻿@model SdProject.Models.EnterInfo
+﻿@model SdProject.Models.HouseDisplayModel.EnterInfo
 
 @{
     ViewBag.Title = "EnterInfo";
@@ -47,9 +47,6 @@
                 @Html.TextAreaFor(m => m.Extras, new { @cols = "35", @rows = "3" })
             </li>
             <li>
-                <h1>Image uploader coming soon!</h1>
-            </li>
-            <li>
                 @Html.LabelFor(m => m.Email)
                 @Html.TextBoxFor(m => m.Email)
             </li>
@@ -57,7 +54,7 @@
 
 
         </ol>
-        <input type="submit" value="slkdfjsd" />
+        <input type="submit" value="Next" />
     </fieldset>
 }
     @section Scripts {

@@ -3,8 +3,10 @@ using System.Linq;
 using Logic;
 
 namespace SdProject.Models.MessageModels {
-    public class MessageModel {
-        public MessageModel(Message message) {
+    public class MessageModel 
+    {
+        public MessageModel(Message message) 
+        {
             Author = message.OwnedEntity.OwnedHistory.First().EditedbyUser.UserName;
             Subject = message.Subject;
             MessageBody = message.MessageBody;

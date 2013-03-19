@@ -11,39 +11,49 @@ namespace SdProject.Models
         public class EnterInfo
         {
             [Display(Name = "Street Address")]
-            public string StreetAddress { get; set; }
+            public string streetAddress { get; set; }
 
+            [Required]
             [Display(Name = "City")]
-            public string City { get; set; }
+            public string city { get; set; }
 
+            [Required]
             [Display(Name = "Zip Code")]
-            public int ZipCode { get; set; }
+            public int zipCode { get; set; }
 
             [Required]
-            [Display(Name = "House Style")]
-            public string Style { get; set; }
+            [Display(Name = "House Style (Ranch, Victorian, etc.)")]
+            public string style { get; set; }
 
             [Required]
-            [Display(Name = "Square Footage")]
-            public int SquareFeet { get; set; }
+            [Display(Name = "Square Footage (ft²)")]
+            public double floorSpace { get; set; }
+
+            [Required]
+            [Display(Name = "Number of Rooms")]
+            public int roomCount { get; set; }
+
+            [Required]
+            [Display(Name = "Number of Floors")]
+            public int storyCount { get; set; }
 
             [Required]
             [Display(Name = "Number of Bedrooms")]
-            public int Bedrooms { get; set; }
+            public int bedrooms { get; set; }
 
             [Required]
             [Display(Name = "Number of Bathrooms")]
-            public int Bathrooms { get; set; }
+            public int bathrooms { get; set; }
+
+            [Required]
+            [Display(Name = "Heating Type")]
+            public string heatingType { get; set; }
 
             [Required]
             [DataType(DataType.MultilineText)]
             [Display(Name = "Description/Extras")]
-            public string Extras { get; set; }
-
-            [Required]
-            [EmailAddress]
-            [Display(Name = "Email")]
-            public string Email { get; set; }
+            public string extras { get; set; }
         }
+      
     }
 }

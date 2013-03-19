@@ -87,13 +87,13 @@ namespace SdProject.Controllers
                 // Attempt to register the user
                 try
                 {
-                    var user = new User(model.UserName, new Entity(new EntityChange(Request)));
+                    var user = new User(model.email, model.UserName, new Entity(new EntityChange(Request)));
                     using (var repo = new UserRepository()) {
                         repo.Add(user);
                     }
                     WebSecurity.CreateAccount(model.UserName, model.Password);
                     WebSecurity.Login(model.UserName, model.Password);
-                    return RedirectToAction("EnterInfo");
+                    return RedirectToAction("PageView", "Account");
                 }
                 catch (MembershipCreateUserException e)
                 {
@@ -340,19 +340,20 @@ namespace SdProject.Controllers
             return PartialView("_RemoveExternalLoginsPartial", externalLogins);
         }
 
-        
-
-        public ActionResult PageView()
-        {
-            return View();
-        }
-
         public ActionResult UploadImage()
         {
             return View();
         }
 
-        
+        public ActionResult PageView()
+        {
+            User user;
+            using (var userrepo = new UserRepository()) 
+            {
+                user = userrepo.GetUser(WebSecurity.CurrentUserId);
+            }
+            return View(new DisplayAccountInfoModel() { User = user });
+        }
 
         #region Helpers
         private ActionResult RedirectToLocal(string returnUrl)

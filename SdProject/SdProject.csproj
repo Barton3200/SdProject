@@ -308,6 +308,7 @@
     <Content Include="Views\Account\PageView.cshtml" />
     <Content Include="Views\Account\_DisplayAccountInfo.cshtml" />
     <Content Include="Views\Account\UploadImage.cshtml" />
+    <Content Include="Views\House\UploadImage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

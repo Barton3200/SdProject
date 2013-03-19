@@ -1,9 +1,16 @@
-﻿@{
+﻿@model SdProject.Models.AccountModels.DisplayAccountInfoModel
+
+
+@{
     ViewBag.Title = "PageView";
 }
 
-<h2>This is the main profile view...under constrution</h2>
-<p>Test paragraph</p>
+<h2>@Model.User.UserName</h2>
+<h2># of bathrooms</h2>
+
+@*<h1>@Model.User.Houses.First().Bathrooms</h1>*@
+<p>Tell Us about your house!</p>
+@Html.ActionLink("Add your house!", "EnterInfo", "House")
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

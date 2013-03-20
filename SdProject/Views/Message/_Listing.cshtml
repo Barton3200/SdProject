@@ -3,17 +3,14 @@
 
 @{
     ViewBag.Title = "MessageListing";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div>
-    <h2>Messages</h2>
     @foreach(MessageModel message in Model.Messages) {
         @Html.Partial("_DisplayMessage", message)
     }
 
     <div id="newMessage">
-         @Ajax.ActionLink("New Message", "Create", new AjaxOptions(){ HttpMethod = "Get", InsertionMode = InsertionMode.Replace, UpdateTargetId = "newMessage" })
+        @Ajax.ActionLink("New Message", "Create", new AjaxOptions(){ HttpMethod = "get", InsertionMode = InsertionMode.Replace, UpdateTargetId = "newMessage" })
     </div>
-   
 </div>

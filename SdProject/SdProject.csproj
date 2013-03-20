@@ -170,17 +170,20 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HouseController.cs" />
+    <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels\AccountModels.cs" />
-    <Compile Include="Models\AccountModels\DisplayAccountInfoModel.cs" />
+    <Compile Include="Models\AccountModels\DisplayAccountModel.cs" />
     <Compile Include="Models\HouseDisplayModel.cs" />
+    <Compile Include="Models\ImageModel\UploadImage.cs" />
     <Compile Include="Models\MessageModels\CreateMessageModel.cs" />
+    <Compile Include="Models\MessageModels\EditMessageModel.cs" />
     <Compile Include="Models\MessageModels\MessageListingModel.cs" />
-    <Compile Include="Models\MessageModels\MessageModel.cs" />
+    <Compile Include="Models\MessageModels\DisplayMessageModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -241,6 +244,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
+    <Content Include="Scripts\jquery.imagedialog.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -267,6 +271,7 @@
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\_references.js" />
@@ -301,12 +306,14 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Message\_DisplayMessage.cshtml" />
-    <Content Include="Views\Message\Listing.cshtml" />
+    <Content Include="Views\Message\_Listing.cshtml" />
     <Content Include="Views\Message\_Create.cshtml" />
     <Content Include="Views\House\EnterInfo.cshtml" />
     <Content Include="Views\Account\PageView.cshtml" />
     <Content Include="Views\Account\_DisplayAccountInfo.cshtml" />
+    <Content Include="Views\Image\UploadImage.cshtml" />
     <Content Include="Views\Account\UploadImage.cshtml" />
+    <Content Include="Views\House\UploadImage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

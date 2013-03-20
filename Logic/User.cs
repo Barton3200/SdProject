@@ -6,7 +6,8 @@ namespace Logic {
     public class User : IObjectState {
         public User() {}
 
-        public User(string userName, Entity entity, Address address = null) {
+        public User(string email, string userName, Entity entity, Address address = null) {
+            Email = email;
             UserName = userName;
             Entity = entity;
             PrimaryAddress = address;
@@ -15,10 +16,10 @@ namespace Logic {
 
         public int Id { get; set; }
 
-        public string UserName { get; set; }
-
         [EmailAddress]
         public string Email { get; set; }
+
+        public string UserName { get; set; }
 
         public virtual List<House> Houses { get; set; }
 

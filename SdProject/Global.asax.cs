@@ -21,7 +21,9 @@ namespace SdProject
     public class MvcApplication : System.Web.HttpApplication
     {
         protected void Application_Start()
-        { 
+        {
+            //Database.Delete(AppConfig.GetActiveConnectionString());
+
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
@@ -47,6 +49,8 @@ namespace SdProject
             {
                 throw new InvalidOperationException("The ASP.NET Simple Membership database could not be initialized. For more information, please see http://go.microsoft.com/fwlink/?LinkId=256588", ex);
             }
+
+            
         }
     }
 }

@@ -1,28 +1,24 @@
-﻿@model SdProject.Models.MessageModels.MessageModel
+﻿@model SdProject.Models.MessageModels.DisplayMessageModel
 
-
-
-<div>
+<div class="messageWrapper">
+    <div class="authorSummery">
+        <div> Author: @Model.Author</div>         
+    </div> 
     <div>
-        <div>
-            <div> Author: @Model.Author</div>         
-        </div> 
-        <div>
-            <div>
-                <div> @Model.Subject </div>
-                <div> Created: @Model.Created</div>
-            </div>
-            <div>
-                @Model.MessageBody
-            </div>
-            <div>
-                @if(@Model.LastModified != @Model.Created) {
-                    <div>LastModified: @Model.LastModified</div>
-                }
-                @if(@Model.LastModifiedBy != @Model.Author) {
-                    <div>Last Modified By: @Model.LastModifiedBy</div>
-                }
-            </div>
-        </div>         
-    </div>    
-</div>
+        <div class="messageHeadline">
+            <div> @Model.Subject </div>
+            <div> Created: @Model.Created</div>
+        </div>
+        <div class="messageBody">
+            @Model.MessageBody
+        </div>
+        <div class="messageRevision">
+            @if(@Model.LastModified != @Model.Created) {
+                <div>LastModified: @Model.LastModified</div>
+            }
+            @if(@Model.LastModifiedBy != @Model.Author) {
+                <div>Last Modified By: @Model.LastModifiedBy</div>
+            }
+        </div>
+    </div>         
+</div>    

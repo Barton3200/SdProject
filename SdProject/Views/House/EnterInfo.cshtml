@@ -15,46 +15,65 @@
         <legend>Enter Your Info</legend>
         <ol>
             <li>
-                @Html.LabelFor(m => m.StreetAddress)
-                @Html.TextBoxFor(m => m.StreetAddress)
+                @Html.LabelFor(m => m.streetAddress)
+                @Html.TextBoxFor(m => m.streetAddress)
             </li>
             <li>
-                @Html.LabelFor(m => m.City)
-                @Html.TextBoxFor(m => m.City)
+                @Html.LabelFor(m => m.city)
+                @Html.TextBoxFor(m => m.city)
+                @Html.ValidationMessageFor(m => m.city)
             </li>
             <li>
-                @Html.LabelFor(m => m.ZipCode)
-                @Html.TextBoxFor(m => m.ZipCode)
+                @Html.LabelFor(m => m.zipCode)
+                @Html.TextBoxFor(m => m.zipCode)
+                @Html.ValidationMessageFor(m => m.zipCode)
             </li>
             <li>
-                @Html.LabelFor(m => m.Style)
-                @Html.TextBoxFor(m => m.Style)
+                @Html.LabelFor(m => m.style)
+                @Html.TextBoxFor(m => m.style)
+                @Html.ValidationMessageFor(m => m.style)
             </li>
             <li>
-                @Html.LabelFor(m => m.SquareFeet)
-                @Html.TextBoxFor(m => m.SquareFeet)
+                @Html.LabelFor(m => m.floorSpace)
+                @Html.TextBoxFor(m => m.floorSpace)
+                @Html.ValidationMessageFor(m => m.floorSpace)
             </li>
             <li>
-                @Html.LabelFor(m => m.Bedrooms)
-                @Html.TextBoxFor(m => m.Bedrooms)
+                @Html.LabelFor(m => m.roomCount)
+                @Html.TextBoxFor(m => m.roomCount)
+                @Html.ValidationMessageFor(m => m.roomCount)
             </li>
             <li>
-                @Html.LabelFor(m => m.Bathrooms)
-                @Html.TextBoxFor(m => m.Bathrooms)
+                @Html.LabelFor(m => m.storyCount)
+                @Html.TextBoxFor(m => m.storyCount)
+                @Html.ValidationMessageFor(m => m.storyCount)
             </li>
             <li>
-                @Html.LabelFor(m => m.Extras)
-                @Html.TextAreaFor(m => m.Extras, new { @cols = "35", @rows = "3" })
+                @Html.LabelFor(m => m.bedrooms)
+                @Html.TextBoxFor(m => m.bedrooms)
+                @Html.ValidationMessageFor(m => m.bedrooms)
             </li>
             <li>
-                @Html.LabelFor(m => m.Email)
-                @Html.TextBoxFor(m => m.Email)
+                @Html.LabelFor(m => m.bathrooms)
+                @Html.TextBoxFor(m => m.bathrooms)
+                @Html.ValidationMessageFor(m => m.bathrooms)
             </li>
+            <li>
+                @Html.LabelFor(m => m.heatingType)
+                @Html.TextBoxFor(m => m.heatingType)
+                @Html.ValidationMessageFor(m => m.heatingType)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.extras)
+                @Html.TextAreaFor(m => m.extras, new { @cols = "25", @rows = "3" })
+                @Html.ValidationMessageFor(m => m.extras)
+            </li>
+            
            
 
 
         </ol>
-        <input type="submit" value="Next" />
+        <input type="submit" value="Continue" />
     </fieldset>
 }
     @section Scripts {

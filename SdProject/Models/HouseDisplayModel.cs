@@ -11,39 +11,49 @@ namespace SdProject.Models
         public class EnterInfo
         {
             [Display(Name = "Street Address")]
-            public string StreetAddress { get; set; }
+            public string streetAddress { get; set; }
 
-            [Display(Name = "City")]
-            public string City { get; set; }
+            [Required(ErrorMessage= "Name of city required.")]
+            [Display(Name = "City*")]
+            public string city { get; set; }
 
-            [Display(Name = "Zip Code")]
-            public int ZipCode { get; set; }
+            [Required(ErrorMessage = "Zip code required.")]
+            [Display(Name = "Zip Code*")]
+            public int zipCode { get; set; }
 
-            [Required]
-            [Display(Name = "House Style")]
-            public string Style { get; set; }
+            [Required(ErrorMessage = "Type of house required.")]
+            [Display(Name = "House Style (Ranch, Victorian, etc.)")]//should this be required?
+            public string style { get; set; }
 
-            [Required]
-            [Display(Name = "Square Footage")]
-            public int SquareFeet { get; set; }
+            [Required(ErrorMessage = "Square footage required.")]//Will they know this number?
+            [Display(Name = "Square Footage (ft²)")]
+            public double floorSpace { get; set; }
 
-            [Required]
-            [Display(Name = "Number of Bedrooms")]
-            public int Bedrooms { get; set; }
+            [Required(ErrorMessage = "Number of rooms required.")]
+            [Display(Name = "Number of Rooms*")]
+            public int roomCount { get; set; }
 
-            [Required]
-            [Display(Name = "Number of Bathrooms")]
-            public int Bathrooms { get; set; }
+            [Required(ErrorMessage = "Number of floors required.")]
+            [Display(Name = "Number of Floors*")]
+            public int storyCount { get; set; }
 
-            [Required]
+            [Required(ErrorMessage = "Number of bedrooms required.")]
+            [Display(Name = "Number of Bedrooms*")]
+            public int bedrooms { get; set; }
+
+            [Required(ErrorMessage = "Number of bathrooms required.")]
+            [Display(Name = "Number of Bathrooms*")]
+            public int bathrooms { get; set; }
+
+            [Required(ErrorMessage = "Heat source type required.")] //should this be required?
+            [Display(Name = "Heating Type*")]
+            public string heatingType { get; set; }
+
+            [Required(ErrorMessage = "Extra description required.")] //should this be required? What if they don't want to?
             [DataType(DataType.MultilineText)]
             [Display(Name = "Description/Extras")]
-            public string Extras { get; set; }
-
-            [Required]
-            [EmailAddress]
-            [Display(Name = "Email")]
-            public string Email { get; set; }
+            public string extras { get; set; }
         }
+      
     }
 }

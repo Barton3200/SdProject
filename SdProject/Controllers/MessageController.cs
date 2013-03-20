@@ -17,7 +17,8 @@ namespace SdProject.Controllers
     public class MessageController : Controller {
 
         [HttpGet]
-        public PartialViewResult Create() {
+        public ActionResult Create() {
+            var isAjax = Request.IsAjaxRequest();
             return PartialView("_Create");
         }
 
@@ -29,7 +30,7 @@ namespace SdProject.Controllers
                      user = userRepo.GetUser(WebSecurity.CurrentUserId);
                 }
 
-                var newMessage = new Message(message.Subject,message.MessageBody, 
+                var newMessage = new Message(message.Subject,message.MessageBody,
                                     new OwnedEntity(user, 
                                         new OwnedEntityChange(Request, user)));
                 using (var messageRepo = new MessageRepository()) {
@@ -39,12 +40,13 @@ namespace SdProject.Controllers
             return RedirectToAction("Listing");
         }
 
-        public ActionResult Listing() {
-            List<MessageModel> messages;
+
+        public ActionResult Listing(IList<int> messageIds) {
+            List<DisplayMessageModel> messages;
             using (var messageRepo = new MessageRepository()) {
-                messages = messageRepo.Messages.ToList().Select(message => new MessageModel(message)).ToList();
+                messages = messageRepo.Messages.Where(message => messageIds.Any(id => id == message.Id)).ToList().Select(message => new DisplayMessageModel(message)).ToList();
             }
-            var model = new MessageListingModel {Messages = messages};
+            var model = new MessageListingModel { Messages = messages };
             return View(model);
         }
 

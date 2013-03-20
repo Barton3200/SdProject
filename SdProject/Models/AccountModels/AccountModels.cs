@@ -19,7 +19,7 @@ namespace SdProject.Models.AccountModels
         public string ExternalLoginData { get; set; }
     }
 
-    public class ManageAccountInfoModel
+    public class ManageAccountModel
     {
         [Required]
         [DataType(DataType.Password)]
@@ -56,6 +56,11 @@ namespace SdProject.Models.AccountModels
     public class RegisterModel
     {
         [Required]
+        [EmailAddress]
+        [Display(Name = "Email")]
+        public string email { get; set; }
+
+        [Required]
         [Display(Name = "User name")]
         public string UserName { get; set; }
 
@@ -77,9 +82,4 @@ namespace SdProject.Models.AccountModels
         public string ProviderDisplayName { get; set; }
         public string ProviderUserId { get; set; }
     }
-
-    
-
-
-
 }

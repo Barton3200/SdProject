@@ -170,6 +170,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HouseController.cs" />
+    <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -178,6 +179,7 @@
     <Compile Include="Models\AccountModels\AccountModels.cs" />
     <Compile Include="Models\AccountModels\DisplayAccountModel.cs" />
     <Compile Include="Models\HouseDisplayModel.cs" />
+    <Compile Include="Models\ImageModel\UploadImage.cs" />
     <Compile Include="Models\MessageModels\CreateMessageModel.cs" />
     <Compile Include="Models\MessageModels\EditMessageModel.cs" />
     <Compile Include="Models\MessageModels\MessageListingModel.cs" />
@@ -242,6 +244,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
+    <Content Include="Scripts\jquery.imagedialog.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -308,6 +311,8 @@
     <Content Include="Views\House\EnterInfo.cshtml" />
     <Content Include="Views\Account\PageView.cshtml" />
     <Content Include="Views\Account\_DisplayAccountInfo.cshtml" />
+    <Content Include="Views\Image\UploadImage.cshtml" />
+    <Content Include="Views\Account\UploadImage.cshtml" />
     <Content Include="Views\House\UploadImage.cshtml" />
   </ItemGroup>
   <ItemGroup>

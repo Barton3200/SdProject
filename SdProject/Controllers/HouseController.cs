@@ -53,7 +53,7 @@ namespace SdProject.Controllers
                                             house.heatingType);
 
             }
-            return RedirectToAction("UploadImage", "House");
+            return RedirectToAction("UploadImage", "Image");
         }
 
         public ActionResult UploadImage()

@@ -9,6 +9,8 @@
     <h2>Tell us about your home.</h2>
 </hgroup>
 
+<html.enableClientValidation();>
+
 @using (Html.BeginForm()) {
 
     <fieldset>
@@ -57,6 +59,7 @@
                 @Html.LabelFor(m => m.bathrooms)
                 @Html.TextBoxFor(m => m.bathrooms)
                 @Html.ValidationMessageFor(m => m.bathrooms)
+
             </li>
             <li>
                 @Html.LabelFor(m => m.heatingType)
@@ -79,3 +82,6 @@
     @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+
+    </html.enableClientValidation>

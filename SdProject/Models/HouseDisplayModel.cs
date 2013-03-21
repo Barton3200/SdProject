@@ -30,18 +30,25 @@ namespace SdProject.Models
             public double floorSpace { get; set; }
 
             [Required(ErrorMessage = "Number of rooms required.")]
+            [MaxRooms]
+            [Range (typeof(int), "1", "999")]
             [Display(Name = "Number of Rooms*")]
             public int roomCount { get; set; }
+            public int maximumRooms { get; set; }
 
             [Required(ErrorMessage = "Number of floors required.")]
+            [Range(typeof(int), "1", "999")]
             [Display(Name = "Number of Floors*")]
             public int storyCount { get; set; }
 
             [Required(ErrorMessage = "Number of bedrooms required.")]
+            [MaxRooms (ErrorMessage="Number of bedrooms must be less than the total number of rooms in the house.")]
             [Display(Name = "Number of Bedrooms*")]
             public int bedrooms { get; set; }
+            public int rooms { get; set; }
 
             [Required(ErrorMessage = "Number of bathrooms required.")]
+            [MaxRooms(ErrorMessage = "Number of bathrooms must be less than the total number of rooms in the house.")]
             [Display(Name = "Number of Bathrooms*")]
             public int bathrooms { get; set; }
 

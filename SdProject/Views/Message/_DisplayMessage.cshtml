@@ -1,16 +1,23 @@
 ﻿@model SdProject.Models.MessageModels.DisplayMessageModel
 
-<div class="messageWrapper">
+<div id="message-@Model.MessageId"class="messageWrapper">
     <div class="authorSummery">
         <div> Author: @Model.Author</div>         
     </div> 
     <div>
+        @{ Model.UpdateTargetId = "message-" + Model.MessageId + "-Subject"; }
         <div class="messageHeadline">
-            <div> @Model.Subject </div>
-            <div> Created: @Model.Created</div>
+            <div id="@Model.UpdateTargetId">
+                @Html.Partial("_DisplayMessageSubject", Model)
+            </div>
+            <div>
+                @Html.LabelFor(message => message.Created)
+                @Html.DisplayFor(message => message.Created)
+            </div>
         </div>
-        <div class="messageBody">
-            @Model.MessageBody
+        @{ Model.UpdateTargetId = "message-" + Model.MessageId + "-Body"; }
+        <div id="@Model.UpdateTargetId">         
+            @Html.Partial("_DisplayMessageBody", Model)
         </div>
         <div class="messageRevision">
             @if(@Model.LastModified != @Model.Created) {

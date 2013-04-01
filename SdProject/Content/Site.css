@@ -802,4 +802,9 @@ button:hover {
     box-shadow: 0 0 10px #666;
 }
 
+/*Message*/
+.messageBody {
+    white-space: pre
+}
+
 }

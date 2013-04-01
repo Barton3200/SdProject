@@ -9,6 +9,7 @@ using DataAccess;
 using DotNetOpenAuth.AspNet;
 using Logic;
 using Microsoft.Web.WebPages.OAuth;
+using SdProject.Models.HouseModels;
 using WebMatrix.WebData;
 using SdProject.Filters;
 using SdProject.Models.AccountModels;
@@ -80,7 +81,7 @@ namespace SdProject.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult Register(RegisterModel model)
+        public ActionResult Register(RegisterModel model, string returnUrl)
         {
             if (ModelState.IsValid)
             {
@@ -93,7 +94,7 @@ namespace SdProject.Controllers
                     }
                     WebSecurity.CreateAccount(model.UserName, model.Password);
                     WebSecurity.Login(model.UserName, model.Password);
-                    return RedirectToAction("PageView", "Account");
+                    return (String.IsNullOrEmpty(returnUrl) ? RedirectToLocal(returnUrl) : RedirectToAction("PageView"));
                 }
                 catch (MembershipCreateUserException e)
                 {
@@ -348,11 +349,12 @@ namespace SdProject.Controllers
         public ActionResult PageView()
         {
             User user;
-            using (var userrepo = new UserRepository()) 
+            using (var userrepo = new UserRepository())
             {
                 user = userrepo.GetUser(WebSecurity.CurrentUserId);
+                return View(new DisplayAccountModel() { User = user, Houses = user.Houses.Select(house => new HouseDisplayModel(house)).ToList() });
+        
             }
-            return View(new DisplayAccountModel() { User = user });
         }
 
         #region Helpers

@@ -14,6 +14,9 @@ namespace Logic {
             EditedOn = DateTime.Now;
             EditedbyUser = user;
             ObjectState = ObjectState.Added;
+            if (user.ObjectState == ObjectState.Unchanged) {
+                user.ObjectState = ObjectState.Modified;
+            }
         }
 
         [Key]

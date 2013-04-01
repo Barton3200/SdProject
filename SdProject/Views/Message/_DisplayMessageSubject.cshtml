@@ -1,0 +1,10 @@
+﻿@model SdProject.Models.MessageModels.DisplayMessageModel
+
+<div class="messageSubject">
+    @Model.Subject
+</div>
+<div class="messageSubjectOptions">
+    @if(Model.HasEditPermision) {
+        @Ajax.ActionLink("Edit", "EditMessageSubject", new { messageId = Model.MessageId, updateTargetId = Model.UpdateTargetId }, new AjaxOptions {HttpMethod = "get", InsertionMode = InsertionMode.Replace, UpdateTargetId = Model.UpdateTargetId})
+    }
+</div>

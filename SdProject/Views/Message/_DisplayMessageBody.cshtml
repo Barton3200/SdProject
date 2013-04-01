@@ -1,0 +1,10 @@
+﻿@model SdProject.Models.MessageModels.DisplayMessageModel
+
+<div class="messageContent">
+    @Html.Raw(Html.Encode(Model.MessageBody).Replace(Environment.NewLine, "<br />"))
+</div>
+<div class ="messageBodyOptions">
+    @if (Model.HasEditPermision) {
+        @Ajax.ActionLink("Edit", "EditMessageBody", new { messageId = Model.MessageId, updateTargetId = Model.UpdateTargetId }, new AjaxOptions { HttpMethod = "get", InsertionMode = InsertionMode.Replace, UpdateTargetId = Model.UpdateTargetId })
+    }
+</div>

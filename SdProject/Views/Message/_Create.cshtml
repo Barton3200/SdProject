@@ -1,41 +1,37 @@
 ﻿@model SdProject.Models.MessageModels.CreateMessageModel
 
-<script src="~/Scripts/jquery-1.7.1.min.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<div id="newMessage">
+    @using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "post", InsertionMode = InsertionMode.Replace, UpdateTargetId = "newMessage"})) {
+        @Html.ValidationSummary(true)
 
-<h2>Create</h2>
+        <fieldset>
+            <legend>New Message</legend>
 
-@using (Html.BeginForm()) {
-    @Html.ValidationSummary(true)
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Subject)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(m=> m.Subject)
+                @Html.ValidationMessageFor(model => model.Subject)
+            </div>
 
-    <fieldset>
-        <legend>New Message</legend>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.MessageBody)
+            </div>
+            <div class="editor-field">
+                @Html.TextAreaFor(model => model.MessageBody)
+                @Html.ValidationMessageFor(model => model.MessageBody)
+            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(m => m.Subject)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(m=> m.Subject)
-            @Html.ValidationMessageFor(model => model.Subject)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.MessageBody)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.MessageBody)
-            @Html.ValidationMessageFor(model => model.MessageBody)
-        </div>
-
-        <p>
-            <input type="submit" value="Create" />
-        </p>
-    </fieldset>
-}
+            <p>
+                <input type="submit" value="Create" />
+            </p>
+        </fieldset>
+    }
+</div>
 
 <div>
-    @Html.ActionLink("Back to List", "Listing")
+    @Html.ActionLink("Back to List", "Listing", new { messageIds = new[] {1}})
 </div>
 
 @section Scripts {

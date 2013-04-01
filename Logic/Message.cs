@@ -20,7 +20,6 @@ namespace Logic {
         [Required, MinLength(1)]
         public string Subject { get; set; }
 
-        [Required]
         public virtual OwnedEntity OwnedEntity { get; set; }
 
         [NotMapped]

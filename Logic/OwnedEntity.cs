@@ -7,9 +7,10 @@ namespace Logic {
     public class OwnedEntity : IObjectState {
         public OwnedEntity(){}
 
-        public OwnedEntity(User user, OwnedEntityChange ownedEntityChange) {
+        public OwnedEntity(User user, ViewPolicy viewPolicy, OwnedEntityChange ownedEntityChange) {
             OwnedHistory = new List<OwnedEntityChange>();
             Owners = new List<User>();
+            ViewPolicy = viewPolicy;
             AddEntityChange(ownedEntityChange);
             AddOwner(user);
             ObjectState = ObjectState.Added;
@@ -19,7 +20,7 @@ namespace Logic {
 
         public virtual List<User> Owners { get; set; }
 
-        public virtual ViewPolicy ViewPolicy { get; set; }
+        public ViewPolicy ViewPolicy { get; set; }
 
         public virtual List<OwnedEntityChange> OwnedHistory { get; set; }
 
@@ -33,5 +34,10 @@ namespace Logic {
         public void AddOwner(User user) {
             Owners.Add(user);
         }
+    }
+    public enum ViewPolicy { 
+        Open,
+        Closed,
+        Limited
     }
 }

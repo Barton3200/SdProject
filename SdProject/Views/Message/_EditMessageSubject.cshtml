@@ -1,0 +1,14 @@
+﻿@model SdProject.Models.MessageModels.EditMessageSubjectModel
+
+@using (Ajax.BeginForm("EditMessageSubject", new AjaxOptions {HttpMethod = "post", InsertionMode = InsertionMode.Replace, UpdateTargetId = Model.UpdateTargetId})) {
+    <div class="messageBody">
+        @Html.HiddenFor(message => message.MessageId)
+        @Html.HiddenFor(message => message.UpdateTargetId)
+        @Html.EditorFor(message => message.Subject)
+        @Html.ValidationMessageFor(message => message.Subject)
+    </div>
+    <div>
+        <input type="submit" value="Save" />
+        @Ajax.ActionLink("Cancel", "Listing", new {messageIds = Model.MessageId}, new AjaxOptions {HttpMethod = "get", InsertionMode = InsertionMode.Replace, UpdateTargetId = "message-" + Model.MessageId})
+    </div>
+}

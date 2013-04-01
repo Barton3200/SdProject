@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using Logic;
 using DataAccess.Repositories;
+using SdProject.Models.HouseModels;
 using WebMatrix.WebData;
-using SdProject.Filters;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SdProject.Controllers
 {
@@ -30,35 +25,47 @@ namespace SdProject.Controllers
         }
 
         [HttpPost]
-        public ActionResult EnterInfo(SdProject.Models.HouseDisplayModel.EnterInfo house)
+        public ActionResult EnterInfo(EnterInfo house)
         {
             if (ModelState.IsValid)
             {
                 User user;
+                List<House> Houses;
                 using (var userRepo = new UserRepository())
                 {
                     user = userRepo.GetUser(WebSecurity.CurrentUserId);
+                    Houses = user.Houses;
                 }
-                var newHouse = new House(   house.streetAddress,
-                                            house.city,
-                                            house.zipCode,
-                                            house.style,
-                                            house.floorSpace,
-                                            house.roomCount,
-                                            house.storyCount,
-                                            house.bedrooms,
-                                            house.bathrooms,
-                                            house.extras,
-                                            new BaseComponent( new OwnedEntity(user, new OwnedEntityChange(Request, user))),
-                                            house.heatingType);
-
+                var newHouse = new House(   house.StreetAddress,
+                                            house.City,
+                                            house.ZipCode,
+                                            house.Style,
+                                            house.FloorSpace,
+                                            house.RoomCount,
+                                            house.StoryCount,
+                                            house.Bedrooms,
+                                            house.Bathrooms,
+                                            house.Extras,
+                                            new BaseComponent( new OwnedEntity(user, ViewPolicy.Open, new OwnedEntityChange(Request,  user))),
+                                            house.HeatingType);
+                Houses.Add(newHouse);
+                user.ObjectState = ObjectState.Modified;
+                using(var houseRepo = new HouseRepository()){
+                    houseRepo.InsertOrUpdate(newHouse);
+                }
+                return RedirectToAction("PageView", "Account");
             }
-            return RedirectToAction("UploadImage", "Image");
+            return View("EnterInfo", house);
         }
 
-        public ActionResult UploadImage()
+        public ActionResult House(int houseid)
         {
-            return View();
+            HouseDisplayModel house;
+            using(var houserepo = new HouseRepository())
+            {
+                house = new HouseDisplayModel(houserepo.GetHouse(houseid));
+            }
+            return View("_House", house);
         }
         
     }

@@ -172,16 +172,20 @@
     <Compile Include="Controllers\HouseController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="CustomValidators\RoomsValidator.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels\AccountModels.cs" />
     <Compile Include="Models\AccountModels\DisplayAccountModel.cs" />
-    <Compile Include="Models\HouseDisplayModel.cs" />
+    <Compile Include="Models\AccountModels\EditAddressModels.cs" />
+    <Compile Include="Models\AddressModels\CreateAddressModel.cs" />
+    <Compile Include="Models\AddressModels\DisplayAddressModel.cs" />
+    <Compile Include="Models\HouseModels\HouseDisplayModel.cs" />
     <Compile Include="Models\ImageModel\UploadImage.cs" />
     <Compile Include="Models\MessageModels\CreateMessageModel.cs" />
-    <Compile Include="Models\MessageModels\EditMessageModel.cs" />
+    <Compile Include="Models\MessageModels\EditMessageModels.cs" />
     <Compile Include="Models\MessageModels\MessageListingModel.cs" />
     <Compile Include="Models\MessageModels\DisplayMessageModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -314,6 +318,14 @@
     <Content Include="Views\Image\UploadImage.cshtml" />
     <Content Include="Views\Account\UploadImage.cshtml" />
     <Content Include="Views\House\UploadImage.cshtml" />
+    <Content Include="Views\Message\Listing.cshtml" />
+    <Content Include="Views\Message\Create.cshtml" />
+    <Content Include="Views\Message\_EditMessageBody.cshtml" />
+    <Content Include="Views\Message\Edit.cshtml" />
+    <Content Include="Views\House\_House.cshtml" />
+    <Content Include="Views\Message\_DisplayMessageBody.cshtml" />
+    <Content Include="Views\Message\_DisplayMessageSubject.cshtml" />
+    <Content Include="Views\Message\_EditMessageSubject.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

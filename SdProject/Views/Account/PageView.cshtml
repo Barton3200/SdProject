@@ -9,7 +9,12 @@
 
 <h2>Welcome, @Model.User.UserName!</h2>
 
-<h1>Your Houses:</h1>
+<br />
+<h2>
+@Html.ActionLink("Add another house", "EnterInfo", "House")
+ </h2>
+
+<h3>Your Houses:</h3>
 @if(Model.Houses.Count() == 0)
 {
     <p>You have not yet added a home.  Click the link to add your house!</p>
@@ -18,6 +23,10 @@
 
  @foreach(HouseDisplayModel house in Model.Houses) {
         @Html.Partial("~/Views/House/_House.cshtml", house)
+        <!--temporary breaks until we figure out how we're doing the layout/-->
+        <br />
+        <br />
+        <br />
     }
 
 

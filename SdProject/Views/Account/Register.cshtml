@@ -10,7 +10,7 @@
     <h1>@ViewBag.Title.</h1>
     <h2>Create a new account.</h2>
 </hgroup>
-
+<section id="loginForm">
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary()
@@ -38,8 +38,25 @@
         <input type="submit" value="Register" />
     </fieldset>
 }
-        </div>
-    </div>
+
+</section>
+
+<section class="social" id="socialLoginForm">
+    <h3>Getting Started</h3>
+<ol class="round">
+    <li class="one">
+        <h5>Create an account by simply entering your email, username, and password.</h5>
+    </li>
+
+    <li class="two">
+        <h5>Once your account has been created, click "Add House" on your profile page to begin adding your houses.</h5>
+    </li>
+
+    <li class="three">
+        <h5>You can network with friends by clicking on "Friends" on your profile page.  From there you can send them messages about your homes.</h5>
+    </li>
+</ol>
+</section>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

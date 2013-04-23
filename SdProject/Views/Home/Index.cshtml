@@ -62,10 +62,27 @@
 <div id="slider">
 		<div class="viewer">
 			<div class="reel">
-				<div class="slide">
-					 <img src="../images/pic09.jpg" alt="" /><p>Share your home with us.</p> </div>
-				<div class="slide">
-					<img src="../images/pic10.jpg" alt="" /><p>And we'll share our home with you.</p> </div>
+                @if(WebSecurity.IsAuthenticated)
+                    {
+				
+                   
+					 @*<img src="../images/pic09.jpg" alt="" /><a href=@(WebSecurity.IsAuthenticated? @Url.Action("ProfileDisplay", "Account", new { username = WebSecurity.CurrentUserName } ) : "Account/Register")><p>Share your home with us.</p></a> </div>
+				*@
+                    <div class="slide">
+                    <img src="../images/3.jpg" alt="" /><a href="Friendship/Create"><p>Find people you know.</p></a> </div>
+                    
+                    <div class="slide">
+					<img src="../images/4.jpg" alt="" /><a href="Message/Create"><p>Talk to your friends</p></a> </div>
+                    } else {
+                        
+                        <div class="slide">
+                    <img src="../images/pic09.jpg" alt="" /><a href="Account/Register"><p>Register to begin</p></a> </div>
+                    
+                    <div class="slide">
+					<img src="../images/pic10.jpg" alt="" /><a href="Account/Register"><p>Once you're registered, click "Add house"</p></a> </div>
+                        
+                    }
+
 			</div>
 		</div>
 		<div class="indicator">
@@ -94,7 +111,7 @@
 				<h2>About Us</h2>
 				<ul class="style1">
 					<li class="first">
-						<p><strong>HomeFront</strong> was built and designed to showcase the abilities to create an extremely dynamic and safe web application using ASP.NET MVC4.  Click the link to learn more about the developers and the design of this application.  <a href="#">About Us</a></p>
+						<p><strong>HomeFront</strong> was built and designed to showcase the abilities to create an extremely dynamic and safe web application using ASP.NET MVC4.  Click the link to learn more about the developers and the design of this application.  <a href="Home/About">About Us</a></p>
 					</li>
 				</ul>
 			</div>

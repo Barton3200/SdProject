@@ -21,6 +21,7 @@ namespace DataAccess
         public DbSet<OwnedEntity> OwnedEntities { get; set; }
         public DbSet<OwnedEntityChange> OwnedEntityChanges { get; set; } 
         public DbSet<User> Users { get; set; }
+        public DbSet<UserOwnedEntity> UserOwnedEntities { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder) {
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();

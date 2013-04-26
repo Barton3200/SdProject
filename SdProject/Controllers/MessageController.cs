@@ -126,7 +126,7 @@ namespace SdProject.Controllers
 
                 using (var messageRepo = new MessageRepository())
                 {
-                    messageToUpdate = messageRepo.Get<Message>(x => x.Id == message.MessageId, x => x.OwnedEntity.UserOwnedEntities);                             
+                    messageToUpdate = messageRepo.Get<Message>(x => x.Id == message.MessageId, x => x.OwnedEntity.UserOwnedEntities.Select(uoe => uoe.User));                             
                 }
 
                 if(PermissionHelper.HasEditPermission(messageToUpdate.OwnedEntity, user)) {

@@ -51,6 +51,11 @@ namespace Logic {
             set { _ownedEntity = ChangeTracker.Set(this, OwnedEntity, value); }
         }
 
+        public int UserId { get; set; }
+
+        [ForeignKey("UserId")]
+        public User User { get; set; }
+
         [NotMapped]
         public ObjectState ObjectState { get; set; }
 

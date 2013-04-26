@@ -32,6 +32,7 @@ namespace Logic {
             set { _userId = ChangeTracker.Set(this, UserId, value); }
         }
 
+        [ForeignKey("UserId")]
         public User User {
             get { return _user; }
             set { _user = ChangeTracker.Set(this, User, value); }
@@ -42,6 +43,7 @@ namespace Logic {
             set { _ownedEntityId = ChangeTracker.Set(this, OwnedEntityId, value); }
         }
 
+        [ForeignKey("OwnedEntityId")]
         public OwnedEntity OwnedEntity {
             get { return _ownedEntity; }
             set { _ownedEntity = ChangeTracker.Set(this, OwnedEntity, value); }
